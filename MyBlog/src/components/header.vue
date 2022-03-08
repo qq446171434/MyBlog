@@ -1,4 +1,4 @@
-<template>
+<template slot-scope="scope">
 <div>
   <div class="headBack">
 		<el-row class="container">
@@ -25,7 +25,7 @@
           <div index="" class="pcsearchbox">
 					  <i class="el-icon-search pcsearchicon"></i>
 					  <div class="pcsearchinput" :class="input?'hasSearched':''">
-						  <el-input placeholder="搜索" icon="search" v-model="input" :on-icon-click="searchEnterFun" @keyup.enter.native="searchEnterFun" @change="searchChangeFun">
+						  <el-input placeholder="搜索" @input="forceUpdate" icon="search" v-model="input" :on-icon-click="searchEnterFun" @keyup.enter.native="searchEnterFun" @change="searchChangeFun">
 						  </el-input>
 					  </div>
 				  </div>
@@ -57,7 +57,14 @@ export default {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       },
-
+		searchEnterFun()
+		{
+			window.open("http://www.baidu.com");
+		},
+		forceUpdate()
+		{
+			 this.$forceUpdate();
+		}
     },
 
 
