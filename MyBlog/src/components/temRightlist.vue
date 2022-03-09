@@ -63,7 +63,30 @@
              
             }
         },
- }
+        methods:
+        {
+            toTopfun (e)
+            {
+                window.scrollTo(0, 0);
+            },
+
+            scrollToTop() { //做一个监听网页当前高度
+　　            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+　　            console.log(scrollTop) ;
+
+            }
+
+        },
+
+        mounted() { 
+            window.addEventListener('scroll', this.scrollToTop)
+        },
+
+        destroyed () {
+            window.removeEventListener('scroll', this.scrollToTop); 
+        }
+}
+ 
 </script>
 
 
