@@ -1,11 +1,11 @@
-<template slot-scope="scope">
+<template>
 <div>
   <div class="headBack">
 		<el-row class="container">
 			<el-col :span="24">
         <div class="headBox">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-          <el-menu-item index="1"><i class="el-icon-price-tag"></i>Home</el-menu-item>
+        <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router>
+          <el-menu-item index="/"><i class="el-icon-price-tag"></i>Home</el-menu-item>
           <el-submenu index="2">
           <template slot="title"><i class="el-icon-s-fold"></i>Classify</i></template>
             <el-menu-item index="2-1">选项1</el-menu-item>
@@ -21,7 +21,7 @@
           <el-menu-item index="3" ><i class="el-icon-coin"></i>Donate</el-menu-item>
           <el-menu-item index="4" ><i class="el-icon-male"></i>Join</el-menu-item>
           <el-menu-item index="5" ><i class="el-icon-chat-line-round"></i>bbs</el-menu-item>
-          <el-menu-item index="6" ><i class="el-icon-message"></i>About</el-menu-item>
+          <el-menu-item index="/About" ><i class="el-icon-message"></i>About</el-menu-item>
           <div index="" class="pcsearchbox">
 					  <i class="el-icon-search pcsearchicon"></i>
 					  <div class="pcsearchinput" :class="input?'hasSearched':''">
@@ -46,6 +46,8 @@
 import {
 	Typeit
 } from '../utils/plug.js'
+
+import {getWeather} from '../utils/server.js'
 export default {
   name: 'App',
    data() {
@@ -70,12 +72,15 @@ export default {
 
     mounted() { //页面元素加载完成
 	  	var that = this;
-      console.log("this");
+     	console.log("this");
+		getWeather();
 	  	var timer = setTimeout(function() {
 			  Typeit(true, "#luke"); //打字机效果
 			  clearTimeout(timer);
 		    }, 500);
 	    }
+
+		
     
 }
 </script>
