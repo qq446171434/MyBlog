@@ -6,7 +6,8 @@
                     <span>Student </span>cherry
                 </h1>
             </div>
-             <div class="r1-body">
+            <div class = "Timer" > {{ FormatTime(nowTime) }}</div>
+            <div class="r1-body">
                 <p>communication</p>
                 <div class="catch-me" >
                     <div class="">
@@ -60,7 +61,8 @@
                         wechat: 'static/img/me/wx.jpg'
                     }
                 },
-             
+                timer: undefined,
+                nowTime: new Date(),
             }
         },
         methods:
@@ -73,13 +75,54 @@
             scrollToTop() { //做一个监听网页当前高度
 　　            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 　　            console.log(scrollTop) ;
+            },
+            FormatTime() {
+        //返回显示的日期时间格式
+        var date = new Date();
+        var year = this.formatTime(date.getFullYear());
+        var month = this.formatTime(date.getMonth() + 1);
+        var day = this.formatTime(date.getDate());
+        var hour = this.formatTime(date.getHours());
+        var minute = this.formatTime(date.getMinutes());
+        var second = this.formatTime(date.getSeconds());
+        var weekday = date.getDay();
+        var weeks = new Array(
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六"
+      );
+        var week = weeks[weekday];
+        return `${year}-${month}-${day} ${hour}:${minute}:${second} ${week}`;
+    },
+    formatTime(n) {
+      //判断是否需要加0
+      if (n < 10) {
+        return "0" + n;
+      } else {
+        return n;
+      }
+    },
+        },
 
-            }
-
+        created() {
+         // 显示时间
+        this.timer = setInterval(() => {
+            this.nowTime= new Date().toLocaleString();
+        });
         },
 
         mounted() { 
             window.addEventListener('scroll', this.scrollToTop)
+        },
+
+        beforeDestroy() {
+            if (this.timer) {
+            clearInterval(this.timer);
+            }
         },
 
         destroyed () {
@@ -165,6 +208,11 @@
     transition: all 0.3s ease-in-out;
     font-style: normal;
     margin:0 3.2px;
+}
+
+.rightlistBox .Timer{
+    text-align:center;
+
 }
 
 /*************do you like me*******************/
