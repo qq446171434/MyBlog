@@ -2,6 +2,7 @@
 <template>
     <div>
         <wbc-nav></wbc-nav>
+        <div class = "HomeBackgroundBox">
         <div class="container">
             <el-row  :gutter="30">
                 <el-col :sm="24" :md="16" style="transition:all .5s ease-out;margin-bottom:30px;">
@@ -11,6 +12,7 @@
                     <wbc-rightlist></wbc-rightlist>
                 </el-col>
             </el-row>
+        </div>
         </div>
         <!-- <wbc-footer></wbc-footer> -->
     </div>
@@ -44,5 +46,13 @@ import temRightlist from '../components/temRightlist.vue'
 </script>
 
 <style>
+
+.HomeBackgroundBox {
+    background-size: 100%;
+    background-image: url('../../static/img/HomeBackground.jpg');
+	height: 100%;
+	width: 100%;
+	background-position: center 50%;
+}
 
 </style>

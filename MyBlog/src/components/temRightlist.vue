@@ -74,7 +74,7 @@
 
             scrollToTop() { //做一个监听网页当前高度
 　　            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-　　            console.log(scrollTop) ;
+// 　　            console.log(scrollTop) ;
             },
             FormatTime() {
         //返回显示的日期时间格式
@@ -161,6 +161,7 @@
 .rightlistBox .r1-head img{
     width:70%;
     min-height: 70px;
+    margin-top: 10px;
 }
 .rightlistBox .r1-head h1{
     position: absolute;

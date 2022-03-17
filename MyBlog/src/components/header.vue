@@ -97,7 +97,7 @@ export default {
 	width: 100%;
 	background-position: center 50%;
 	background-repeat: no-repeat;
-	margin-bottom: 90px;
+	margin-bottom: 10px;
   opacity:0.5;
   z-index:1;
 }
