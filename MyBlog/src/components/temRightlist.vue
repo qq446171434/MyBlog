@@ -136,7 +136,7 @@
 <style lang="less">
 .rightlistBox{
     position: relative;
-    background: rgb(206, 191, 191);
+    background: rgb(250, 245, 245);
 }
 .rightlistBox section {
     transition: all 0.2s linear;
