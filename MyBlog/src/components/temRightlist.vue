@@ -56,9 +56,9 @@
                 PersonalMessage:{
                     me:{
                         git: 'https://github.com/qq446171434',
-                        qq: 'static/img/me/QQ.jpg',
+                        qq: 'static/img/QQ.jpg',
                         sina: 'https://weibo.com',
-                        wechat: 'static/img/me/wx.jpg'
+                        wechat: 'static/img/wx.jpg'
                     }
                 },
                 timer: undefined,
